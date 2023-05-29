@@ -370,12 +370,12 @@ def save_player(league):
 
     """
 
-    league_team_df = pd.read_csv("crawler/teams.csv")
+    league_team_df = pd.read_csv("./teams.csv")
 
     # get player dataframe function
     def get_player_df(league, team_id, team_name):
         players_df = crawling_team_player(team_id)
-        players_df.to_csv("datasets/players/" + league + "/" + team_name + ".csv")
+        players_df.to_csv("../datasets/players/" + league + "/" + team_name + ".csv")
         return players_df
 
     # for one of league teams
