@@ -72,7 +72,7 @@ def crawling_team(team_url, team_id):
         team_dict['reds'] = get_text_strip(td_elements[4].find_elements(By.CSS_SELECTOR, "span")[1])
         team_dict['possession'] = get_text_strip(td_elements[5])
         team_dict['pass_success'] = get_text_strip(td_elements[6])
-        team_dict['arial_won'] = get_text_strip(td_elements[7])
+        team_dict['aerials_won'] = get_text_strip(td_elements[7])
         team_dict['rating'] = get_text_strip(td_elements[8])
 
     # to get defensive information
