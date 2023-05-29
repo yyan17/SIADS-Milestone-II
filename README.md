@@ -26,7 +26,8 @@
   
 ### run crawler
 - move to the project home directory
-- `python3 ./cralwer/player_crawler.py`
+- `python3 ./crawler/player_crawler.py`
+- `python3 ./crawler/team_crawler.py`
 
 ### if you want to add or remove specific team in the list
 - edit ./crawler/teams.csv file
