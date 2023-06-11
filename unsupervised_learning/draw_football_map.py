@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 def draw_position_dist(df, cluster: str):
     df_cluster = df[df['cluster'] == cluster]
     
+    top3_features = df[df['cluster'] == cluster].sort_values(by=['feature_importance'], ascending=False).head(3)
+    top3_feature_importance = top3_features['feature_name'].values.tolist()
+    
     pitch = Pitch(pitch_color='#aabb97', line_color='white', stripe_color='#c2d59d', stripe=True, line_zorder=2,)
     fig, axs = pitch.grid(figheight=10, title_height=0.08, endnote_space=0, axis=False, title_space=0, grid_height=0.82, endnote_height=0.05)
     fig.set_facecolor('#22312b')
@@ -22,4 +25,5 @@ def draw_position_dist(df, cluster: str):
     axs['endnote'].set_xlim(0, 1)
     axs['endnote'].set_ylim(0, 1)
     axs['title'].text(0.5, 0.7, f'The position distribution for cluster {cluster}', color='#c7d5cc', va='center', ha='center', fontsize=30)
-    axs['title'].text(0.5, 0.25, 'The Game\'s First Half', color='#c7d5cc', va='center', ha='center', fontsize=18)
+    axs['title'].text(0.5, 0.2, f'Important features: {top3_feature_importance}', color='#c7d5cc', va='center', ha='center', fontsize=20)
+    
