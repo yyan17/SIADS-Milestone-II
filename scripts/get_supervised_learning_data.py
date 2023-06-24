@@ -50,4 +50,6 @@ if __name__ == "__main__":
     raw_csv_root_path = 'C:/your_home_dir/workspace/SIADS-Milestone-II/datasets/raw/supervised_learning'
     concatenated_df = concatenate_csv_files(raw_csv_root_path)
     normalized_df = drop_columns(concatenated_df)
+    cols_to_norm = ['FTHG','FTAG','HTHG','HTAG','HS','AS','HST','AST','HF','AF','HC','AC','HY','AY','HR','AR']
+    normalized_df[cols_to_norm] = normalized_df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
     normalized_df.to_csv("sl_final.csv", index=False)
